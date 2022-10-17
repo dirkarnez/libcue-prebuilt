@@ -12,7 +12,7 @@ jobs:
     runs-on: windows-2019
     env:
       libraryName: libcue
-      installationPath: libcue-installation
+      cmakeInstallationPath: libcue-installation
       tagName: v2.2.1 # target tag
       mingwTargetZip: libcue-${{ github.ref_name }}-x86_64-posix-seh-rev0-8.1.0.zip
     steps:
@@ -54,12 +54,12 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           type: 'zip'
-          directory: "libcue/cmake-build"
+          directory: "libcue/cmake-build/${{ env.cmakeInstallationPath }}"
           filename: "${{ env.mingwTargetZip }}"
         
       - name: Release prebuilt
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "libcue/cmake-build/${{ env.mingwTargetZip }}"
+          artifacts: "libcue/cmake-build/${{ env.cmakeInstallationPath }}/${{ env.mingwTargetZip }}"
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
