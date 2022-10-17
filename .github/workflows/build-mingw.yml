@@ -40,14 +40,14 @@ jobs:
         shell: msys2 {0}
         run: |
             workspace=$(pwd) && \
-            export PATH="$workspace/mingw64:$workspace/mingw64/bin:$workspace/msys64/usr/bin:/usr/bin" && \
+            export PATH="$workspace/mingw64:$workspace/mingw64/bin:$workspace/msys64/usr/bin:/usr/bin:$workspace/cmake-3.24.0-windows-x86_64/bin" && \
             gcc --version && \
-            cd libcue && 
-            g++ --version && 
-            cmake.exe -G "MinGW Makefiles" ^
-            -DCMAKE_BUILD_TYPE=Release ^
-            -DBUILD_SHARED_LIBS=OFF ^
-            -DCMAKE_INSTALL_PREFIX="cmake-build/${{ env.cmakeInstallationPath }}" -B./cmake-build &&^
+            cd libcue && \
+            g++ --version && \
+            cmake.exe -G "MinGW Makefiles" \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DBUILD_SHARED_LIBS=OFF \
+            -DCMAKE_INSTALL_PREFIX="cmake-build/${{ env.cmakeInstallationPath }}" -B./cmake-build && \
             cd cmake-build && cmake --build . && cmake --install . 
             
       - name: Archive Release
