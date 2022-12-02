@@ -77,7 +77,6 @@ jobs:
         shell: msys2 {0}
         run: |
             workspace=$(pwd) && \
-            ls && \
             export EMSDK="$workspace/emsdk" && \
             export EMSDK_NODE="$EMSDK/node/14.18.2_64bit/bin/node.exe" && \
             export EMSDK_PYTHON="$EMSDK/python/3.9.2-nuget_64bit/python.exe" && \
@@ -87,10 +86,8 @@ jobs:
             export PATH="$workspace/PortableGit-2.38.1-64-bit/bin:$PATH" && \
             export PATH="$EMSDK:$EMSDK/upstream/emscripten:$EMSDK/node/14.18.2_64bit/bin:$PATH" && \
             cd "$EMSDK" && \
-            ls && \
-            cd "$EMSDK" && \
-            ./emsdk install latest && \
-            ./emsdk activate latest && \
+            ./emsdk.bat install latest && \
+            ./emsdk.bat activate latest && \
             cd "$workspace\libcue" && \
             gcc --version && \
             cmake.exe -G"MinGW Makefiles" \
