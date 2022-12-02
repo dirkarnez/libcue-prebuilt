@@ -85,7 +85,7 @@ jobs:
             export PATH="$workspace/python-3.7.9-amd64-portable:$workspace/python-3.7.9-amd64-portable/Scripts:$PATH" && \
             export PATH="$workspace/PortableGit-2.38.1-64-bit/bin:$PATH" && \
             export PATH="$EMSDK:$EMSDK/upstream/emscripten:$EMSDK/node/14.18.2_64bit/bin:$PATH" && \
-            cd "$EMSDK/python/3.9.2-nuget_64bit" && \
+            cd "$EMSDK/python" && \
             ls && \
             cd "$EMSDK" && \
             ./emsdk install latest && \
