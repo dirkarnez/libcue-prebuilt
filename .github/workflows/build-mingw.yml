@@ -17,7 +17,7 @@ jobs:
       tagName: v2.2.1 # target tag
       mingwTargetZip: libcue-${{ github.ref_name }}-mingw64-x86_64-posix-seh-rev0-8.1.0.zip
       emsdkTagName: 3.1.25
-      emscriptenTargetZip: flac-${{ github.ref_name }}-emscripten-emsdk-3.1.25.zip
+      emscriptenTargetZip: libcue-${{ github.ref_name }}-emscripten-emsdk-3.1.25.zip
     steps:
       - uses: actions/checkout@v3
       
