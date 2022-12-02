@@ -94,7 +94,7 @@ jobs:
             -DCMAKE_TOOLCHAIN_FILE="$EMSDK/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake" \
             -DCMAKE_BUILD_TYPE=Release \
             -DBUILD_SHARED_LIBS=OFF \
-            -DCMAKE_INSTALL_PREFIX="cmake-emscripten-build/${{ env.cmakeEmscriptenInstallationPath }}" -B./cmake-emscripten-build
+            -DCMAKE_INSTALL_PREFIX="cmake-emscripten-build/${{ env.cmakeEmscriptenInstallationPath }}" \
             -B./cmake-emscripten-build && \
             cd cmake-emscripten-build && \
             cmake --build . && \
